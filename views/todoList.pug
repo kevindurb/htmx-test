@@ -1,0 +1,7 @@
+extends layout.pug
+
+block content
+  ul
+    each todo in todos
+      li
+        a(href='/todos/' + todo.id)= todo.summary

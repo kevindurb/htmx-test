@@ -1,13 +1,12 @@
 import 'reflect-metadata';
+import 'dotenv/config';
 
-import * as dotenv from 'dotenv';
-dotenv.config();
+import { Container } from 'typedi';
 
-import Container from 'typedi';
-
-import { App } from './App';
+import { App } from './App.js';
 
 (function main() {
+  Container.set;
   const app = Container.get(App);
   app.start();
 })();

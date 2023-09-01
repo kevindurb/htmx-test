@@ -1,16 +1,23 @@
+import bodyParser from 'body-parser';
 import express from 'express';
-import { createExpressServer } from 'routing-controllers';
+import { useExpressServer } from 'routing-controllers';
 import { Service } from 'typedi';
 
-import { TodosController } from './todos/TodosController';
+import { TodoController } from './todo/TodoController.js';
 
 @Service()
 export class App {
   private express: express.Express;
 
   public constructor() {
-    this.express = createExpressServer({ controllers: [TodosController] });
+    this.express = express();
     this.express.set('view engine', 'pug');
+    this.express.use(bodyParser.urlencoded({ extended: true }));
+    this.express.use(bodyParser.json());
+
+    useExpressServer(this.express, {
+      controllers: [TodoController],
+    });
   }
 
   public start() {
@@ -20,11 +27,7 @@ export class App {
       if (typeof address === 'string') {
         console.log(`Listening at ${address}`);
       } else {
-        console.log(
-          `Listening at http://${
-            address.address === '::' ? 'localhost' : address.address
-          }:${address.port}`,
-        );
+        console.log(`Listening at http://localhost:${address.port}`);
       }
     });
   }
