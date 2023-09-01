@@ -3,6 +3,7 @@ import express from 'express';
 import { useExpressServer } from 'routing-controllers';
 import { Service } from 'typedi';
 
+import { IndexController } from './home/IndexController.js';
 import { TodoController } from './todo/TodoController.js';
 
 @Service()
@@ -16,7 +17,7 @@ export class App {
     this.express.use(bodyParser.json());
 
     useExpressServer(this.express, {
-      controllers: [TodoController],
+      controllers: [TodoController, IndexController],
     });
   }
 

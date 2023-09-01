@@ -1,0 +1,7 @@
+extends layout.pug
+
+block content
+  form(method='post', action='/todos')
+    input(name='summary', type='text')
+    input(type='submit', value='add')
+  div(hx-get='/todos', hx-trigger='load')
