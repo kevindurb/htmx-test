@@ -1,7 +1,11 @@
 extends layout.pug
 
 block content
+  form(method='post', action='/todos')
+    input(name='summary', type='text')
+    input(type='submit', value='add')
   ul
     each todo in todos
       li
+        input(type='checkbox', name='done', checked=todo.done, hx-put='/todos/' + todo.id, value='0')
         a(href='/todos/' + todo.id)= todo.summary

@@ -6,9 +6,7 @@ export class DatabaseClientFactory {
   private client: pg.Client;
 
   public constructor() {
-    this.client = new pg.Client({
-      connectionString: process.env.DATABASE_URL,
-    });
+    this.client = new pg.Client({});
     this.client.connect();
   }
 
