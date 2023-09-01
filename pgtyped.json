@@ -13,7 +13,7 @@
     "host": "localhost",
     "port": 55432,
     "user": "postgres",
-    "dbName": "pgtest",
+    "dbName": "postgres",
     "password": "password"
   }
 }

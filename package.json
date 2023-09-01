@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently npm:build:watch npm:nodemon",
+    "start": "concurrently npm:build:watch npm:nodemon npm:pgtyped",
     "nodemon": "nodemon ./dist/index.js",
     "build": "tsc",
     "build:watch": "npm run build -- --watch --preserveWatchOutput",
