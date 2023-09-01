@@ -1,14 +1,12 @@
 /* @name getAllTodos */
 select id, done, summary
-from todos
-;
+from todos;
 
 
 /* @name getById */
 select id, done, summary
 from todos
-where id =:id !
-;
+where id = :id!;
 
 /*
   @name createTodo

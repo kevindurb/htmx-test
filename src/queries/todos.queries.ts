@@ -47,14 +47,14 @@ export interface IGetByIdQuery {
   result: IGetByIdResult;
 }
 
-const getByIdIR: any = {"usedParamSet":{"id":true},"params":[{"name":"id","required":true,"transform":{"type":"scalar"},"locs":[{"a":46,"b":50}]}],"statement":"select id, done, summary\nfrom todos\nwhere id =:id !"};
+const getByIdIR: any = {"usedParamSet":{"id":true},"params":[{"name":"id","required":true,"transform":{"type":"scalar"},"locs":[{"a":47,"b":50}]}],"statement":"select id, done, summary\nfrom todos\nwhere id = :id!"};
 
 /**
  * Query generated from SQL:
  * ```
  * select id, done, summary
  * from todos
- * where id =:id !
+ * where id = :id!
  * ```
  */
 export const getById = new PreparedQuery<IGetByIdParams,IGetByIdResult>(getByIdIR);
