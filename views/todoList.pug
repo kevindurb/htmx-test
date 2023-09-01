@@ -1,4 +1,12 @@
-ul
+ul#todo-list
   each todo in todos
     li
+      input(
+        type='checkbox',
+        name='done',
+        checked=todo.done,
+        hx-post='/todos/' + todo.id + '/toggle-done',
+        hx-target='#todo-list',
+        hx-swap='outerHTML'
+      )
       a(href='/todos/' + todo.id)= todo.summary

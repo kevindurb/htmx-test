@@ -1,6 +1,7 @@
 /* @name getAllTodos */
 select id, done, summary
-from todos;
+from todos
+order by id;
 
 
 /* @name getById */

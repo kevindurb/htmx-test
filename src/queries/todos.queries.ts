@@ -17,13 +17,14 @@ export interface IGetAllTodosQuery {
   result: IGetAllTodosResult;
 }
 
-const getAllTodosIR: any = {"usedParamSet":{},"params":[],"statement":"select id, done, summary\nfrom todos"};
+const getAllTodosIR: any = {"usedParamSet":{},"params":[],"statement":"select id, done, summary\nfrom todos\norder by id"};
 
 /**
  * Query generated from SQL:
  * ```
  * select id, done, summary
  * from todos
+ * order by id
  * ```
  */
 export const getAllTodos = new PreparedQuery<IGetAllTodosParams,IGetAllTodosResult>(getAllTodosIR);
