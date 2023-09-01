@@ -1,0 +1,19 @@
+{
+  "transforms": [
+    {
+      "mode": "sql",
+      "include": "queries/**/*.sql",
+      "emitTemplate": "{{dir}}/{{name}}.queries.ts"
+    }
+  ],
+  "srcDir": "./src/",
+  "failOnError": false,
+  "camelCaseColumnNames": true,
+  "db": {
+    "host": "localhost",
+    "port": 55432,
+    "user": "postgres",
+    "dbName": "pgtest",
+    "password": "password"
+  }
+}

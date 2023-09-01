@@ -1,0 +1,20 @@
+---
+version: '3.8'
+
+services:
+  database:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_PASSWORD: password
+    ports:
+      - 55432:5432
+  migrate:
+    image: postgres:15-alpine
+    volumes:
+      - ./src/ddl:/ddl
+    entrypoint: /ddl/migrate
+    working_dir: /ddl
+    depends_on:
+      - database
+    profiles:
+      - migrate

@@ -1,0 +1,9 @@
+{
+  "name": "pgtest",
+  "adapter": "postgres",
+  "host": "localhost",
+  "port": 55432,
+  "user": "postgres",
+  "password": "password",
+  "database": "pgtest"
+}
