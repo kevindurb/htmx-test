@@ -1,12 +1,16 @@
 import express from 'express';
+import { createExpressServer } from 'routing-controllers';
 import { Service } from 'typedi';
+
+import { TodosController } from './todos/TodosController';
 
 @Service()
 export class App {
   private express: express.Express;
 
   public constructor() {
-    this.express = express();
+    this.express = createExpressServer({ controllers: [TodosController] });
+    this.express.set('view engine', 'pug');
   }
 
   public start() {
