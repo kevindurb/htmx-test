@@ -16,7 +16,11 @@ export class App {
       if (typeof address === 'string') {
         console.log(`Listening at ${address}`);
       } else {
-        console.log(`Listening at http://${address.address}:${address.port}`);
+        console.log(
+          `Listening at http://${
+            address.address === '::' ? 'localhost' : address.address
+          }:${address.port}`,
+        );
       }
     });
   }
